@@ -1,0 +1,89 @@
+/* Arrière-plan vidéo immersif pour la Landing Page */
+.landing-page-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-parchment-border);
+  box-shadow: var(--shadow-card);
+  background: var(--color-parchment);
+}
+
+.landing-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.landing-video-iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 178vh;
+  min-width: 100%;
+  height: 56.25vw;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  border: none;
+  opacity: 0.42;
+  filter: sepia(35%) saturate(120%) contrast(108%);
+  pointer-events: none;
+}
+
+.landing-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(244, 237, 225, 0.72) 0%,
+    rgba(244, 237, 225, 0.88) 50%,
+    rgba(244, 237, 225, 0.97) 100%
+  );
+  backdrop-filter: blur(1.5px);
+  z-index: 1;
+}
+
+.landing-video-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  z-index: 3;
+  pointer-events: auto;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+}
+
+.landing-video-badge a {
+  color: var(--color-blue);
+  text-decoration: underline;
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
+}
+
+.landing-video-badge a:hover {
+  opacity: 1;
+  color: var(--color-gold-deep);
+}
+
+.landing-content {
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem 1rem 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-video-iframe {
+    display: none;
+  }
+}

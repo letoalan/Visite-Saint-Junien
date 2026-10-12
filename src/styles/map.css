@@ -1,0 +1,120 @@
+@import 'leaflet/dist/leaflet.css';
+
+/* Conteneur de carte stylisée */
+.map-card-wrapper {
+  background: var(--color-parchment-light);
+  border: 2px solid var(--color-parchment-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 1.25rem;
+}
+
+.map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: var(--color-parchment-deep);
+  border-bottom: 1px solid var(--color-parchment-border);
+}
+
+.leaflet-map-container {
+  width: 100%;
+  height: 380px;
+  background: var(--color-parchment);
+  position: relative;
+  z-index: 10;
+}
+
+/* Filtre de tuiles stylisées : teinte parchemin et encre */
+.stylized-parchment-tiles .leaflet-tile {
+  filter: sepia(35%) saturate(125%) contrast(106%) brightness(96%) hue-rotate(-12deg);
+}
+
+/* Marqueurs numérotés de 1 à 5 */
+.custom-pin-container {
+  background: transparent !important;
+  border: none !important;
+}
+
+.custom-leaflet-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: var(--shadow-elevated);
+  transition: transform var(--transition-fast);
+  cursor: pointer;
+  border: 2.5px solid #ffffff;
+}
+
+.custom-leaflet-pin:hover,
+.custom-leaflet-pin.pin-selected {
+  transform: scale(1.22);
+  z-index: 1000 !important;
+}
+
+.custom-leaflet-pin.pin-selected {
+  box-shadow: 0 0 0 3px var(--color-gold), 0 4px 12px rgba(34, 38, 32, 0.35);
+}
+
+.custom-leaflet-pin.pin-active {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-deep));
+  box-shadow: 0 0 10px rgba(181, 144, 77, 0.7);
+}
+
+.custom-leaflet-pin.pin-completed {
+  background: var(--color-success);
+}
+
+.custom-leaflet-pin.pin-locked {
+  background: var(--color-stone);
+  opacity: 0.85;
+}
+
+.pin-badge {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 15px;
+  color: #ffffff;
+  line-height: 1;
+}
+
+/* Panneau de détails du spot sélectionné */
+.map-spot-details {
+  padding: 1rem 1.25rem;
+  background: var(--color-parchment-light);
+  border-top: 1px solid var(--color-parchment-border);
+}
+
+/* Onglets de vue Liste / Carte */
+.view-mode-toggle {
+  display: flex;
+  background: var(--color-parchment-deep);
+  border: 1px solid var(--color-parchment-border);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  gap: 4px;
+  margin-bottom: 1rem;
+}
+
+.view-mode-btn {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  color: var(--color-ink-muted);
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.view-mode-btn.active {
+  background: #ffffff;
+  color: var(--color-ink);
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid var(--color-gold);
+}

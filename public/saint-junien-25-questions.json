@@ -1,0 +1,829 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "1.0.0",
+  "id": "saint-junien-pouvoirs",
+  "title": "Bâtir la foi, gouverner la ville",
+  "sources": {
+    "SA": "https://journals.openedition.org/adlfi/192323",
+    "PONT": "https://www.saint-junien.fr/wp-content/uploads/2018/06/circuit2rivieres.pdf",
+    "RAPIN": "https://www.academia.edu/30650478/Rapin_T_Saint_Junien_Chapelle_Notre_Dame_du_Pont_le_m%C3%A9c%C3%A9nat_royal_au_service_dune_r%C3%A9surgence_des_formes_locales_Congr%C3%A8s_Arch%C3%A9ologique_de_France_Haute_Vienne_2014_p_297_310",
+    "THESE": "https://theses.hal.science/tel-03917468v1/file/2018PSLEP061_archivage.pdf",
+    "AP": "https://www.aelf.org/bible/Ap/5",
+    "BROUSSE": "https://journals.openedition.org/dossiersgrihl/2203",
+    "CONSULS": "https://www.visitlimousin.com/sejourner/activites/les-activites-culturelles/maison-des-consuls-saint-junien-fr-4130233/",
+    "HALLES": "https://www.visitlimousin.com/sejourner/activites/les-activites-culturelles/halles-saint-junien-fr-4834829/",
+    "MURS": "https://www.eveha.fr/index.php/2026/04/08/saint-junien-87-centre-ville-reseau-de-chaleur/"
+  },
+  "stages": [
+    {
+      "id": "saint-amand",
+      "title": "Saint-Amand",
+      "keyword": "MEMOIRE",
+      "questions": [
+        {
+          "id": "saint-amand-1",
+          "prompt": "À quel siècle est attribuée l’église primitive étudiée ?",
+          "options": [
+            {
+              "id": "saint-amand-1-0",
+              "text": "Au XIe siècle."
+            },
+            {
+              "id": "saint-amand-1-1",
+              "text": "Au IXe siècle."
+            },
+            {
+              "id": "saint-amand-1-2",
+              "text": "Au XIIIe siècle."
+            },
+            {
+              "id": "saint-amand-1-3",
+              "text": "Au XVe siècle."
+            },
+            {
+              "id": "saint-amand-1-4",
+              "text": "Au XVIIe siècle."
+            }
+          ],
+          "correctOptionId": "saint-amand-1-0",
+          "feedback": "Maniquet attribue l’église au XIe siècle.",
+          "sourceIds": [
+            "SA"
+          ]
+        },
+        {
+          "id": "saint-amand-2",
+          "prompt": "Pourquoi des salles voûtées sont-elles installées sous le bras sud du transept ?",
+          "options": [
+            {
+              "id": "saint-amand-2-0",
+              "text": "Compenser la pente du terrain."
+            },
+            {
+              "id": "saint-amand-2-1",
+              "text": "Conserver les provisions des religieux."
+            },
+            {
+              "id": "saint-amand-2-2",
+              "text": "Recevoir les assemblées des habitants."
+            },
+            {
+              "id": "saint-amand-2-3",
+              "text": "Protéger les archives des consuls."
+            },
+            {
+              "id": "saint-amand-2-4",
+              "text": "Installer les ateliers des sculpteurs."
+            }
+          ],
+          "correctOptionId": "saint-amand-2-0",
+          "feedback": "Elles compensent la dénivellation.",
+          "sourceIds": [
+            "SA"
+          ]
+        },
+        {
+          "id": "saint-amand-3",
+          "prompt": "Quel usage initial est reconnu au bâtiment ensuite appelé sacristie ?",
+          "options": [
+            {
+              "id": "saint-amand-3-0",
+              "text": "Un passage sous de grandes baies."
+            },
+            {
+              "id": "saint-amand-3-1",
+              "text": "Une réserve pour les vêtements liturgiques."
+            },
+            {
+              "id": "saint-amand-3-2",
+              "text": "Une salle pour les assemblées consulaires."
+            },
+            {
+              "id": "saint-amand-3-3",
+              "text": "Un atelier pour les sculptures religieuses."
+            },
+            {
+              "id": "saint-amand-3-4",
+              "text": "Une chambre pour les visiteurs épiscopaux."
+            }
+          ],
+          "correctOptionId": "saint-amand-3-0",
+          "feedback": "L’appellation ultérieure ne décrit pas sa fonction initiale.",
+          "sourceIds": [
+            "SA"
+          ]
+        },
+        {
+          "id": "saint-amand-4",
+          "prompt": "Comment le mur nord de la nef est-il utilisé au XIXe siècle ?",
+          "options": [
+            {
+              "id": "saint-amand-4-0",
+              "text": "Comme soutènement d’une terrasse."
+            },
+            {
+              "id": "saint-amand-4-1",
+              "text": "Comme façade d’une mairie."
+            },
+            {
+              "id": "saint-amand-4-2",
+              "text": "Comme rempart d’une ville."
+            },
+            {
+              "id": "saint-amand-4-3",
+              "text": "Comme support d’un pont."
+            },
+            {
+              "id": "saint-amand-4-4",
+              "text": "Comme clôture d’un marché."
+            }
+          ],
+          "correctOptionId": "saint-amand-4-0",
+          "feedback": "Le mur est réemployé pour retenir les terres.",
+          "sourceIds": [
+            "SA"
+          ]
+        },
+        {
+          "id": "saint-amand-5",
+          "prompt": "Que montrent les transformations du site ?",
+          "options": [
+            {
+              "id": "saint-amand-5-0",
+              "text": "Un lieu peut changer de fonction."
+            },
+            {
+              "id": "saint-amand-5-1",
+              "text": "Un lieu garde toujours sa fonction."
+            },
+            {
+              "id": "saint-amand-5-2",
+              "text": "Un lieu conserve toutes ses ouvertures."
+            },
+            {
+              "id": "saint-amand-5-3",
+              "text": "Un lieu résulte d’un chantier unique."
+            },
+            {
+              "id": "saint-amand-5-4",
+              "text": "Un lieu dépend toujours des consuls."
+            }
+          ],
+          "correctOptionId": "saint-amand-5-0",
+          "feedback": "Le site présente plusieurs états et usages.",
+          "sourceIds": [
+            "SA"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pont-chapelle",
+      "title": "Pont et Notre-Dame-du-Pont",
+      "keyword": "PASSAGE",
+      "questions": [
+        {
+          "id": "pont-chapelle-1",
+          "prompt": "À quel siècle la brochure municipale attribue-t-elle le pont ?",
+          "options": [
+            {
+              "id": "pont-chapelle-1-0",
+              "text": "Au XIIIe siècle."
+            },
+            {
+              "id": "pont-chapelle-1-1",
+              "text": "Au XIe siècle."
+            },
+            {
+              "id": "pont-chapelle-1-2",
+              "text": "Au XVe siècle."
+            },
+            {
+              "id": "pont-chapelle-1-3",
+              "text": "Au XVIIe siècle."
+            },
+            {
+              "id": "pont-chapelle-1-4",
+              "text": "Au XIXe siècle."
+            }
+          ],
+          "correctOptionId": "pont-chapelle-1-0",
+          "feedback": "Attribution patrimoniale, non datation de chaque réparation.",
+          "sourceIds": [
+            "PONT"
+          ]
+        },
+        {
+          "id": "pont-chapelle-2",
+          "prompt": "Quelle forme caractérise les arches décrites ?",
+          "options": [
+            {
+              "id": "pont-chapelle-2-0",
+              "text": "Des arcs brisés."
+            },
+            {
+              "id": "pont-chapelle-2-1",
+              "text": "Des arcs surbaissés."
+            },
+            {
+              "id": "pont-chapelle-2-2",
+              "text": "Des arcs circulaires."
+            },
+            {
+              "id": "pont-chapelle-2-3",
+              "text": "Des poutres horizontales."
+            },
+            {
+              "id": "pont-chapelle-2-4",
+              "text": "Des linteaux monolithes."
+            }
+          ],
+          "correctOptionId": "pont-chapelle-2-0",
+          "feedback": "La brochure décrit six arches brisées.",
+          "sourceIds": [
+            "PONT"
+          ]
+        },
+        {
+          "id": "pont-chapelle-3",
+          "prompt": "Quelle figure sculptée est signalée sur le pont ?",
+          "options": [
+            {
+              "id": "pont-chapelle-3-0",
+              "text": "Un agneau en bas-relief."
+            },
+            {
+              "id": "pont-chapelle-3-1",
+              "text": "Un évêque en bas-relief."
+            },
+            {
+              "id": "pont-chapelle-3-2",
+              "text": "Un monarque en bas-relief."
+            },
+            {
+              "id": "pont-chapelle-3-3",
+              "text": "Un chanoine en bas-relief."
+            },
+            {
+              "id": "pont-chapelle-3-4",
+              "text": "Un ermite en bas-relief."
+            }
+          ],
+          "correctOptionId": "pont-chapelle-3-0",
+          "feedback": "Sa datation reste à établir.",
+          "sourceIds": [
+            "PONT"
+          ]
+        },
+        {
+          "id": "pont-chapelle-4",
+          "prompt": "Quelle intervention de Louis XI est attestée par Rapin ?",
+          "options": [
+            {
+              "id": "pont-chapelle-4-0",
+              "text": "Financer l’agrandissement de la chapelle."
+            },
+            {
+              "id": "pont-chapelle-4-1",
+              "text": "Financer la reconstruction du pont."
+            },
+            {
+              "id": "pont-chapelle-4-2",
+              "text": "Financer l’extension de l’enceinte."
+            },
+            {
+              "id": "pont-chapelle-4-3",
+              "text": "Financer la transformation des halles."
+            },
+            {
+              "id": "pont-chapelle-4-4",
+              "text": "Financer l’installation des Récollets."
+            }
+          ],
+          "correctOptionId": "pont-chapelle-4-0",
+          "feedback": "Le mécénat concerne l’agrandissement de la chapelle.",
+          "sourceIds": [
+            "RAPIN"
+          ]
+        },
+        {
+          "id": "pont-chapelle-5",
+          "prompt": "Que sait-on du financement initial du pont dans ce dossier ?",
+          "options": [
+            {
+              "id": "pont-chapelle-5-0",
+              "text": "Le commanditaire reste à identifier."
+            },
+            {
+              "id": "pont-chapelle-5-1",
+              "text": "Le roi finance seul l’ouvrage."
+            },
+            {
+              "id": "pont-chapelle-5-2",
+              "text": "Le chapitre finance seul l’ouvrage."
+            },
+            {
+              "id": "pont-chapelle-5-3",
+              "text": "Les consuls financent seuls l’ouvrage."
+            },
+            {
+              "id": "pont-chapelle-5-4",
+              "text": "L’évêque finance seul l’ouvrage."
+            }
+          ],
+          "correctOptionId": "pont-chapelle-5-0",
+          "feedback": "Le don à la chapelle ne permet pas de désigner le payeur du pont.",
+          "sourceIds": [
+            "PONT"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "collegiale",
+      "title": "Collégiale et ostensions",
+      "keyword": "SACRE",
+      "questions": [
+        {
+          "id": "collegiale-1",
+          "prompt": "Quelle communauté dessert une collégiale ?",
+          "options": [
+            {
+              "id": "collegiale-1-0",
+              "text": "Un chapitre de chanoines."
+            },
+            {
+              "id": "collegiale-1-1",
+              "text": "Un couvent de Récollets."
+            },
+            {
+              "id": "collegiale-1-2",
+              "text": "Une abbaye de bénédictins."
+            },
+            {
+              "id": "collegiale-1-3",
+              "text": "Un conseil de consuls."
+            },
+            {
+              "id": "collegiale-1-4",
+              "text": "Une commanderie de templiers."
+            }
+          ],
+          "correctOptionId": "collegiale-1-0",
+          "feedback": "Distinguer chapitre, abbaye et couvent.",
+          "sourceIds": [
+            "THESE"
+          ]
+        },
+        {
+          "id": "collegiale-2",
+          "prompt": "Qui l’Agneau représente-t-il dans ce programme ?",
+          "options": [
+            {
+              "id": "collegiale-2-0",
+              "text": "Le Christ sacrifié et victorieux."
+            },
+            {
+              "id": "collegiale-2-1",
+              "text": "Junien retiré et sanctifié."
+            },
+            {
+              "id": "collegiale-2-2",
+              "text": "Amand retiré et sanctifié."
+            },
+            {
+              "id": "collegiale-2-3",
+              "text": "L’évêque consacré et protecteur."
+            },
+            {
+              "id": "collegiale-2-4",
+              "text": "Le monarque couronné et protecteur."
+            }
+          ],
+          "correctOptionId": "collegiale-2-0",
+          "feedback": "Apocalypse 5 décrit l’Agneau debout comme égorgé.",
+          "sourceIds": [
+            "AP"
+          ]
+        },
+        {
+          "id": "collegiale-3",
+          "prompt": "Que représentent les parfums des coupes dans Apocalypse 5 ?",
+          "options": [
+            {
+              "id": "collegiale-3-0",
+              "text": "Les prières des saints."
+            },
+            {
+              "id": "collegiale-3-1",
+              "text": "Les offrandes des marchands."
+            },
+            {
+              "id": "collegiale-3-2",
+              "text": "Les revenus des terres."
+            },
+            {
+              "id": "collegiale-3-3",
+              "text": "Les décisions des consuls."
+            },
+            {
+              "id": "collegiale-3-4",
+              "text": "Les demandes des bâtisseurs."
+            }
+          ],
+          "correctOptionId": "collegiale-3-0",
+          "feedback": "Le texte donne explicitement cette interprétation.",
+          "sourceIds": [
+            "AP"
+          ]
+        },
+        {
+          "id": "collegiale-4",
+          "prompt": "À quelle cérémonie Brousse rattache-t-il l’affrontement eucharistique de 1903 ?",
+          "options": [
+            {
+              "id": "collegiale-4-0",
+              "text": "La procession de la Fête-Dieu."
+            },
+            {
+              "id": "collegiale-4-1",
+              "text": "La procession des ostensions septennales."
+            },
+            {
+              "id": "collegiale-4-2",
+              "text": "La procession de la Saint-Marc."
+            },
+            {
+              "id": "collegiale-4-3",
+              "text": "La procession des funérailles épiscopales."
+            },
+            {
+              "id": "collegiale-4-4",
+              "text": "La procession des fêtes patronales."
+            }
+          ],
+          "correctOptionId": "collegiale-4-0",
+          "feedback": "Distinguer procession eucharistique et ostensions de reliques.",
+          "sourceIds": [
+            "BROUSSE"
+          ]
+        },
+        {
+          "id": "collegiale-5",
+          "prompt": "Quelle conclusion prudente tirer d’un rassemblement de participants différents ?",
+          "options": [
+            {
+              "id": "collegiale-5-0",
+              "text": "Participer ne prouve pas une adhésion identique."
+            },
+            {
+              "id": "collegiale-5-1",
+              "text": "Participer prouve une conversion commune des habitants."
+            },
+            {
+              "id": "collegiale-5-2",
+              "text": "Participer prouve une disparition complète des conflits."
+            },
+            {
+              "id": "collegiale-5-3",
+              "text": "Participer prouve une soumission commune des militants."
+            },
+            {
+              "id": "collegiale-5-4",
+              "text": "Participer prouve une unanimité durable des autorités."
+            }
+          ],
+          "correctOptionId": "collegiale-5-0",
+          "feedback": "Un rassemblement ponctuel ne supprime pas nécessairement les désaccords.",
+          "sourceIds": [
+            "BROUSSE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "consuls",
+      "title": "Maison dite des Consuls",
+      "keyword": "DROITS",
+      "questions": [
+        {
+          "id": "consuls-1",
+          "prompt": "À quelle période la notice attribue-t-elle la maison visible ?",
+          "options": [
+            {
+              "id": "consuls-1-0",
+              "text": "Au XVIe siècle, style Renaissance."
+            },
+            {
+              "id": "consuls-1-1",
+              "text": "Au XIIe siècle, style roman."
+            },
+            {
+              "id": "consuls-1-2",
+              "text": "Au XIIIe siècle, style gothique."
+            },
+            {
+              "id": "consuls-1-3",
+              "text": "Au XVIIe siècle, style classique."
+            },
+            {
+              "id": "consuls-1-4",
+              "text": "Au XIXe siècle, style industriel."
+            }
+          ],
+          "correctOptionId": "consuls-1-0",
+          "feedback": "Des parties plus anciennes et remaniées sont aussi signalées.",
+          "sourceIds": [
+            "CONSULS"
+          ]
+        },
+        {
+          "id": "consuls-2",
+          "prompt": "Que prouve à lui seul le nom Maison des Consuls ?",
+          "options": [
+            {
+              "id": "consuls-2-0",
+              "text": "Une appellation à vérifier par documents."
+            },
+            {
+              "id": "consuls-2-1",
+              "text": "Un siège collectif attesté par documents."
+            },
+            {
+              "id": "consuls-2-2",
+              "text": "Une propriété canoniale attestée par documents."
+            },
+            {
+              "id": "consuls-2-3",
+              "text": "Une continuité municipale attestée par documents."
+            },
+            {
+              "id": "consuls-2-4",
+              "text": "Une résidence royale attestée par documents."
+            }
+          ],
+          "correctOptionId": "consuls-2-0",
+          "feedback": "Le nom seul ne démontre pas un siège d’assemblée.",
+          "sourceIds": [
+            "CONSULS"
+          ]
+        },
+        {
+          "id": "consuls-3",
+          "prompt": "Quelle pièce localiserait directement une assemblée dans la maison ?",
+          "options": [
+            {
+              "id": "consuls-3-0",
+              "text": "Un acte mentionnant le lieu d’assemblée."
+            },
+            {
+              "id": "consuls-3-1",
+              "text": "Un plan mentionnant le nom de rue."
+            },
+            {
+              "id": "consuls-3-2",
+              "text": "Une photographie montrant les fenêtres à meneaux."
+            },
+            {
+              "id": "consuls-3-3",
+              "text": "Une notice décrivant le style du bâtiment."
+            },
+            {
+              "id": "consuls-3-4",
+              "text": "Un inventaire décrivant les matériaux du bâtiment."
+            }
+          ],
+          "correctOptionId": "consuls-3-0",
+          "feedback": "C’est une preuve à rechercher, non un acte déjà retrouvé ici.",
+          "sourceIds": [
+            "CONSULS"
+          ]
+        },
+        {
+          "id": "consuls-4",
+          "prompt": "Quand les halles actuelles sont-elles construites ?",
+          "options": [
+            {
+              "id": "consuls-4-0",
+              "text": "Entre 1899 et 1902."
+            },
+            {
+              "id": "consuls-4-1",
+              "text": "Entre 1199 et 1202."
+            },
+            {
+              "id": "consuls-4-2",
+              "text": "Entre 1399 et 1402."
+            },
+            {
+              "id": "consuls-4-3",
+              "text": "Entre 1599 et 1602."
+            },
+            {
+              "id": "consuls-4-4",
+              "text": "Entre 1799 et 1802."
+            }
+          ],
+          "correctOptionId": "consuls-4-0",
+          "feedback": "Le complexe appartient à l’époque contemporaine.",
+          "sourceIds": [
+            "HALLES"
+          ]
+        },
+        {
+          "id": "consuls-5",
+          "prompt": "Quels droits le titre du Plan Collin permet-il d’étudier ?",
+          "options": [
+            {
+              "id": "consuls-5-0",
+              "text": "Les droits du chapitre sur des biens."
+            },
+            {
+              "id": "consuls-5-1",
+              "text": "Les droits royaux sur toutes les maisons."
+            },
+            {
+              "id": "consuls-5-2",
+              "text": "Les droits militaires sur toutes les portes."
+            },
+            {
+              "id": "consuls-5-3",
+              "text": "Les droits consulaires sur toutes les terres."
+            },
+            {
+              "id": "consuls-5-4",
+              "text": "Les droits pontificaux sur toutes les activités."
+            }
+          ],
+          "correctOptionId": "consuls-5-0",
+          "feedback": "Droits fonciers ne signifie pas toutes les compétences administratives.",
+          "sourceIds": [
+            "THESE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "remparts",
+      "title": "Remparts",
+      "keyword": "ENCEINTE",
+      "questions": [
+        {
+          "id": "remparts-1",
+          "prompt": "Où Éveha situe-t-il le tronçon décrit en 2026 ?",
+          "options": [
+            {
+              "id": "remparts-1-0",
+              "text": "Dans la rue Camélinat."
+            },
+            {
+              "id": "remparts-1-1",
+              "text": "Dans la rue Lucien-Dumas."
+            },
+            {
+              "id": "remparts-1-2",
+              "text": "Dans la rue Marcel-Paul."
+            },
+            {
+              "id": "remparts-1-3",
+              "text": "Dans la rue Étienne-Maleu."
+            },
+            {
+              "id": "remparts-1-4",
+              "text": "Dans la rue Albert-Pestour."
+            }
+          ],
+          "correctOptionId": "remparts-1-0",
+          "feedback": "Le tronçon publié se situe rue Camélinat.",
+          "sourceIds": [
+            "MURS"
+          ]
+        },
+        {
+          "id": "remparts-2",
+          "prompt": "Quel matériau est identifié dans ce tronçon ?",
+          "options": [
+            {
+              "id": "remparts-2-0",
+              "text": "Des blocs de granite."
+            },
+            {
+              "id": "remparts-2-1",
+              "text": "Des blocs de calcaire."
+            },
+            {
+              "id": "remparts-2-2",
+              "text": "Des blocs de schiste."
+            },
+            {
+              "id": "remparts-2-3",
+              "text": "Des briques de terre."
+            },
+            {
+              "id": "remparts-2-4",
+              "text": "Des galets de rivière."
+            }
+          ],
+          "correctOptionId": "remparts-2-0",
+          "feedback": "Le rempart décrit est en granite.",
+          "sourceIds": [
+            "MURS"
+          ]
+        },
+        {
+          "id": "remparts-3",
+          "prompt": "Quel aménagement accompagne le mur observé ?",
+          "options": [
+            {
+              "id": "remparts-3-0",
+              "text": "Un fossé associé au rempart."
+            },
+            {
+              "id": "remparts-3-1",
+              "text": "Un aqueduc associé au rempart."
+            },
+            {
+              "id": "remparts-3-2",
+              "text": "Un cloître associé au rempart."
+            },
+            {
+              "id": "remparts-3-3",
+              "text": "Un marché associé au rempart."
+            },
+            {
+              "id": "remparts-3-4",
+              "text": "Un moulin associé au rempart."
+            }
+          ],
+          "correctOptionId": "remparts-3-0",
+          "feedback": "Un fossé est documenté avec le rempart.",
+          "sourceIds": [
+            "MURS"
+          ]
+        },
+        {
+          "id": "remparts-4",
+          "prompt": "Que révèle le vestige sur son financement ?",
+          "options": [
+            {
+              "id": "remparts-4-0",
+              "text": "Le payeur reste à rechercher."
+            },
+            {
+              "id": "remparts-4-1",
+              "text": "Le chapitre paie seul l’ouvrage."
+            },
+            {
+              "id": "remparts-4-2",
+              "text": "Le consulat paie seul l’ouvrage."
+            },
+            {
+              "id": "remparts-4-3",
+              "text": "Le monarque paie seul l’ouvrage."
+            },
+            {
+              "id": "remparts-4-4",
+              "text": "Le diocèse paie seul l’ouvrage."
+            }
+          ],
+          "correctOptionId": "remparts-4-0",
+          "feedback": "Le mur ne constitue pas un compte de financement.",
+          "sourceIds": [
+            "MURS"
+          ]
+        },
+        {
+          "id": "remparts-5",
+          "prompt": "Quel est le statut des résultats de 2026 ?",
+          "options": [
+            {
+              "id": "remparts-5-0",
+              "text": "Préliminaires, avec datations à affiner."
+            },
+            {
+              "id": "remparts-5-1",
+              "text": "Définitifs, avec datations toutes fixées."
+            },
+            {
+              "id": "remparts-5-2",
+              "text": "Littéraires, avec vestiges encore invisibles."
+            },
+            {
+              "id": "remparts-5-3",
+              "text": "Cadastraux, avec vestiges encore supposés."
+            },
+            {
+              "id": "remparts-5-4",
+              "text": "Légendaires, avec auteurs encore inconnus."
+            }
+          ],
+          "correctOptionId": "remparts-5-0",
+          "feedback": "Les études de post-fouille doivent préciser les dates.",
+          "sourceIds": [
+            "MURS"
+          ]
+        }
+      ]
+    }
+  ]
+}

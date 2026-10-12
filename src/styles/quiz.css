@@ -1,0 +1,150 @@
+/* Quiz Layout */
+.quiz-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 1.5rem 0;
+}
+
+.option-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 56px;
+  padding: 1rem 1.25rem;
+  background: var(--color-parchment-light);
+  border: 2px solid var(--color-parchment-border);
+  border-radius: var(--radius-md);
+  text-align: left;
+  transition: all var(--transition-fast);
+  color: var(--color-ink);
+  font-size: 0.98rem;
+  line-height: 1.45;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.option-card:active:not(:disabled) {
+  transform: scale(0.985);
+  background: var(--color-parchment-deep);
+}
+
+.option-card:hover:not(:disabled) {
+  border-color: var(--color-gold);
+  background: #ffffff;
+}
+
+.option-card.selected {
+  border-color: var(--color-blue);
+  background: var(--color-blue-bg);
+  font-weight: 600;
+  box-shadow: 0 0 0 1px var(--color-blue);
+}
+
+.option-card.correct {
+  border-color: var(--color-success);
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.option-card.incorrect {
+  border-color: var(--color-red);
+  background: var(--color-red-bg);
+  color: var(--color-red);
+}
+
+.option-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-parchment-deep);
+  border: 1px solid var(--color-parchment-border);
+  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--color-stone-dark);
+}
+
+.option-card.selected .option-index {
+  background: var(--color-blue);
+  color: #ffffff;
+  border-color: var(--color-blue);
+}
+
+.option-card.correct .option-index {
+  background: var(--color-success);
+  color: #ffffff;
+  border-color: var(--color-success);
+}
+
+.option-card.incorrect .option-index {
+  background: var(--color-red);
+  color: #ffffff;
+  border-color: var(--color-red);
+}
+
+.option-text {
+  flex: 1;
+}
+
+/* Feedback Box */
+.feedback-box {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-stone);
+  background: var(--color-parchment-deep);
+}
+
+.feedback-box.success {
+  border-left-color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
+.feedback-box.error {
+  border-left-color: var(--color-red);
+  background: var(--color-red-bg);
+}
+
+.feedback-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.feedback-explanation {
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  line-height: 1.5;
+}
+
+.stage-step-pills {
+  display: flex;
+  gap: 8px;
+  margin: 1rem 0;
+}
+
+.step-pill {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-parchment-border);
+  transition: background var(--transition-normal);
+}
+
+.step-pill.completed {
+  background: var(--color-gold);
+}
+
+.step-pill.active {
+  background: var(--color-stone-dark);
+}
