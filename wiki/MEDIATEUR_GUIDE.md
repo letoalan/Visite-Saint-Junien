@@ -42,3 +42,14 @@ La partie inférieure de l'écran liste les visites validées sur ce poste par o
 - La note éventuelle consignée par le médiateur.
 
 Ce journal persiste même en cas de fermeture du navigateur ou de redémarrage de la machine.
+
+---
+
+## 📲 4. Lancement de la Visite & Partage avec l'Auditoire
+
+Sur la page d'accueil (Landing Page), un module dédié permet au médiateur de lancer rapidement un groupe ou un public :
+- **QR Code d'accès rapide** : Affiché en vignette dans le bandeau d'accueil pour scan immédiat par les smartphones des visiteurs.
+- **Agrandissement plein écran (Modal)** : Un clic sur le QR code ou sur « 🔍 Cliquer pour agrandir » affiche le QR code en haute définition plein écran, idéal pour une projection ou une présentation collective.
+- **Mini-lien de secours** : En cas d'appareil sans lecteur optique ou d'échec du scan, le lien court officiel est directement mis à disposition et copiable en un clic :
+  👉 `https://edurl.fr/medsju`
+

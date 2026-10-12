@@ -3,6 +3,7 @@ import { Button } from '../components/common/Button';
 import { Card } from '../components/common/Card';
 import { Modal } from '../components/common/Modal';
 import { BackgroundVideo } from '../components/common/BackgroundVideo';
+import { LandingShareQr } from '../components/home/LandingShareQr';
 import { ContentPack, UserSession } from '../domain/types';
 
 interface HomeScreenProps {
@@ -43,19 +44,6 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           </p>
         </div>
 
-        <Card>
-          <h2 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>
-            Instructions de visite
-          </h2>
-          <ul style={{ paddingLeft: '1.2rem', fontSize: '0.95rem', lineHeight: '1.6' }}>
-            <li>Cinq spots patrimoniaux à découvrir dans la ville.</li>
-            <li>Cinq énigmes par spot, sans limite de temps.</li>
-            <li>Toutes les questions sont basées sur des sources historiques réelles.</li>
-            <li>Fonctionnement 100% hors ligne garanti une fois l’application chargée.</li>
-            <li>À l’issue des 5 étapes, un QR code final sera validé par le médiateur.</li>
-          </ul>
-        </Card>
-
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: '0.5rem' }}>
           {session ? (
             <>
@@ -83,6 +71,21 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             </Button>
           )}
         </div>
+
+        <LandingShareQr />
+
+        <Card>
+          <h2 style={{ fontSize: '1.15rem', marginBottom: '0.4rem' }}>
+            Instructions de visite
+          </h2>
+          <ul style={{ paddingLeft: '1.2rem', fontSize: '0.9rem', lineHeight: '1.55' }}>
+            <li>Cinq spots patrimoniaux à découvrir dans la ville.</li>
+            <li>Cinq énigmes par spot, sans limite de temps.</li>
+            <li>Toutes les questions sont basées sur des sources historiques réelles.</li>
+            <li>Fonctionnement 100% hors ligne garanti une fois l’application chargée.</li>
+            <li>À l’issue des 5 étapes, un QR code final sera validé par le médiateur.</li>
+          </ul>
+        </Card>
       </div>
 
       <Modal
