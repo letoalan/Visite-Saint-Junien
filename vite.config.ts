@@ -31,7 +31,21 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff2}']
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff2}'],
+        globIgnores: ['**/media/**'],
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.includes('/media/'),
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'media-rewards-cache',
+              expiration: {
+                maxEntries: 20,
+                maxAgeSeconds: 30 * 24 * 60 * 60 // 30 jours
+              }
+            }
+          }
+        ]
       }
     })
   ],

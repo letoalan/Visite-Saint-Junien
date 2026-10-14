@@ -8,6 +8,7 @@ import { QuizScreen } from './screens/QuizScreen';
 import { CarnetScreen } from './screens/CarnetScreen';
 import { FinalScreen } from './screens/FinalScreen';
 import { QrScreen } from './screens/QrScreen';
+import { RewardScreen } from './screens/RewardScreen';
 import { ValidatorScreen } from './screens/ValidatorScreen';
 import { UserSession } from './domain/types';
 import { createNewSession, answerQuestion } from './domain/session';
@@ -81,6 +82,25 @@ export const App: React.FC = () => {
     setSession(updated);
   };
 
+  const handleUpdateSessionReward = async (data: {
+    rewardId: string;
+    rawToken: string;
+    validatorNote?: string;
+  }) => {
+    if (!session) return;
+    const updated: UserSession = {
+      ...session,
+      reward: {
+        rewardId: data.rewardId,
+        unlockedAt: Date.now(),
+        rawToken: data.rawToken,
+        validatorNote: data.validatorNote
+      }
+    };
+    await saveActiveSession(updated);
+    setSession(updated);
+  };
+
   // Routeur par hash
   const renderCurrentScreen = () => {
     if (route === '#validateur') {
@@ -132,6 +152,15 @@ export const App: React.FC = () => {
         <QrScreen
           pack={pack}
           session={session}
+          onNavigate={navigateTo}
+        />
+      );
+    }
+    if (route.startsWith('#cadeau') || route.startsWith('#recompense')) {
+      return (
+        <RewardScreen
+          session={session}
+          onUpdateSessionReward={handleUpdateSessionReward}
           onNavigate={navigateTo}
         />
       );

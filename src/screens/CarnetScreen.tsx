@@ -2,6 +2,7 @@ import React from 'react';
 import { Card } from '../components/common/Card';
 import { Button } from '../components/common/Button';
 import { ContentPack, UserSession } from '../domain/types';
+import { findRewardById, getRewardImageUrl } from '../content/rewards';
 
 interface CarnetScreenProps {
   pack: ContentPack;
@@ -82,6 +83,48 @@ export const CarnetScreen: React.FC<CarnetScreenProps> = ({
           })}
         </div>
       </Card>
+
+      {session.reward ? (() => {
+        const reward = findRewardById(session.reward.rewardId);
+        return reward ? (
+          <Card>
+            <div className="flex-row-between mb-2">
+              <span className="text-gold" style={{ fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.05em' }}>
+                ✦ RÉCOMPENSE DU MÉDIATEUR
+              </span>
+              <span className="text-subtle" style={{ fontSize: '0.75rem' }}>
+                {new Date(session.reward.unlockedAt).toLocaleDateString()}
+              </span>
+            </div>
+            <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
+              <img
+                src={getRewardImageUrl(reward.filename)}
+                alt={reward.title}
+                style={{
+                  width: 80,
+                  height: 80,
+                  objectFit: 'cover',
+                  borderRadius: 'var(--radius-sm)',
+                  border: '2px solid var(--color-gold)'
+                }}
+              />
+              <div style={{ flex: 1 }}>
+                <h3 style={{ fontSize: '1.05rem', margin: '0 0 4px 0' }}>{reward.title}</h3>
+                <p className="text-subtle" style={{ fontSize: '0.8rem', margin: '0 0 8px 0' }}>
+                  {reward.description}
+                </p>
+                <Button
+                  variant="gold"
+                  onClick={() => onNavigate('#cadeau')}
+                  style={{ padding: '0.35rem 0.8rem', fontSize: '0.8rem' }}
+                >
+                  🖼️ Voir la planche HD & Télécharger →
+                </Button>
+              </div>
+            </div>
+          </Card>
+        ) : null;
+      })() : null}
 
       <Card>
         <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>

@@ -12,3 +12,15 @@ export const QrPayloadSchema = z.object({
 });
 
 export type QrPayload = z.infer<typeof QrPayloadSchema>;
+
+export const RewardQrPayloadSchema = z.object({
+  v: z.literal(1),
+  sid: z.string().min(4).max(64),
+  rid: z.string().min(1).max(64),
+  ts: z.number().int().positive(),
+  val: z.string().max(128).optional(),
+  chk: z.number().int().nonnegative()
+});
+
+export type RewardQrPayload = z.infer<typeof RewardQrPayloadSchema>;
+

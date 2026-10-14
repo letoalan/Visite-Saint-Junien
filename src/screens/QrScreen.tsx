@@ -104,6 +104,41 @@ export const QrScreen: React.FC<QrScreenProps> = ({
         </div>
       </Card>
 
+      <Card>
+        <div style={{ textAlign: 'center' }}>
+          <h2 style={{ fontSize: '1.15rem', marginBottom: '0.4rem' }}>
+            🎁 Récompense de Visite
+          </h2>
+          {session.reward ? (
+            <div>
+              <p className="text-subtle" style={{ fontSize: '0.85rem', marginBottom: '1rem' }}>
+                Votre visite a été validée par le médiateur ! Votre cadeau patrimonial est débloqué.
+              </p>
+              <Button
+                variant="gold"
+                onClick={() => onNavigate('#cadeau')}
+                style={{ width: '100%' }}
+              >
+                🎁 Voir ma planche historique offerte →
+              </Button>
+            </div>
+          ) : (
+            <div>
+              <p className="text-subtle" style={{ fontSize: '0.85rem', marginBottom: '1rem' }}>
+                Après avoir présenté votre QR ci-dessus au médiateur, celui-ci vous présentera en retour un <strong>QR code de réponse</strong> pour vous offrir une planche historique exclusive.
+              </p>
+              <Button
+                variant="secondary"
+                onClick={() => onNavigate('#cadeau')}
+                style={{ width: '100%' }}
+              >
+                📷 Saisir ou scanner mon QR cadeau du médiateur →
+              </Button>
+            </div>
+          )}
+        </div>
+      </Card>
+
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <Button variant="secondary" onClick={() => onNavigate('#stages')}>
           ← Revenir au parcours

@@ -65,4 +65,10 @@ export interface UserSession {
   isFinalValidated: boolean;
   finalCompletedAt?: number;
   qrPayload?: string;
+  reward?: {
+    rewardId: string;
+    unlockedAt: number;
+    rawToken: string;
+    validatorNote?: string;
+  };
 }

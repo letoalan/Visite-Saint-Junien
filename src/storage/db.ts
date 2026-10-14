@@ -7,6 +7,8 @@ export interface ConsumedQrRecord {
   consumedAt: number;
   payload: QrPayload;
   mediatorNote?: string;
+  rewardId?: string;
+  rewardQrPayload?: string;
 }
 
 export interface SaintJunienDB extends DBSchema {

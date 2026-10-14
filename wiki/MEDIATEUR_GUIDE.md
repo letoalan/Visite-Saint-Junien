@@ -53,3 +53,23 @@ Sur la page d'accueil (Landing Page), un module dédié permet au médiateur de 
 - **Mini-lien de secours** : En cas d'appareil sans lecteur optique ou d'échec du scan, le lien court officiel est directement mis à disposition et copiable en un clic :
   👉 `https://edurl.fr/medsju`
 
+---
+
+## 🎁 5. Remise du Cadeau & QR Code de Réponse
+
+Lors de la validation d'une attestation conforme :
+
+1. **Attribution Aléatoire d'une Planche Patrimoniale** :
+   - Le système tire au sort une illustration exclusive parmi le catalogue des 13 planches haute définition (Collégiale Saint-Junien, Abbaye Saint-Amand, Chapelle Notre-Dame-du-Pont, Ostensions, mégisseries et patrimoine médiéval).
+   - Cette planche est automatiquement enregistrée et liée à la session dans le journal local.
+
+2. **Présentation du QR Cadeau à l'Usager** :
+   - Une fenêtre surgissante affiche instantanément le **QR Code de réponse** en haute résolution.
+   - L'usager le scanne directement avec l'appareil photo de son smartphone.
+   - Le lien direct ouvre automatiquement l'écran `#cadeau` sur le téléphone de l'usager, révélant la planche en haute résolution avec son cartel explicatif et lui permettant de la télécharger en PNG ou de la conserver dans son carnet de visite.
+
+3. **Lien de secours & Ré-affichage** :
+   - Si la caméra du visiteur est indisponible, le médiateur peut cliquer sur « 📋 Copier le lien cadeau » pour transmettre l'URL ou la chaîne `SJR1:...`.
+   - Si un visiteur demande à revoir son QR après coup, le médiateur peut cliquer sur « 🎁 Revoir le QR » dans l'historique du journal à tout moment.
+
+

@@ -9,14 +9,18 @@ export async function isQrAlreadyConsumed(sid: string): Promise<boolean> {
 
 export async function recordConsumedQr(
   payload: QrPayload,
-  mediatorNote?: string
+  mediatorNote?: string,
+  rewardId?: string,
+  rewardQrPayload?: string
 ): Promise<ConsumedQrRecord> {
   const db = await getDatabase();
   const record: ConsumedQrRecord = {
     sid: payload.sid,
     consumedAt: Date.now(),
     payload,
-    mediatorNote
+    mediatorNote,
+    rewardId,
+    rewardQrPayload
   };
   await db.put('qr_journal', record);
   return record;
