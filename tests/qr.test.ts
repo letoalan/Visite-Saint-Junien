@@ -23,6 +23,17 @@ describe('QR Code : Encodage, Décodage et Anti-corruption', () => {
     expect(result.payload?.stages).toEqual([0, 0, 0, 0, 0]);
   });
 
+  it('décode un QR de session contenu dans une URL complète', () => {
+    const session = createNewSession(pack);
+    session.isFinalValidated = true;
+    const qrString = buildSessionQrPayload(session, pack);
+    const wrappedUrl = `https://edurl.fr/medsju?code=${qrString}&utm=1`;
+
+    const result = decodeQrPayload(wrappedUrl);
+    expect(result.success).toBe(true);
+    expect(result.payload?.sid).toBe(session.sessionId);
+  });
+
   it('rejette une chaîne de QR sans préfixe SJ1', () => {
     const result = decodeQrPayload('INVALID_STRING_123');
     expect(result.success).toBe(false);

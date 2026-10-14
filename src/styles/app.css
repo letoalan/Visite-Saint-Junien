@@ -6,6 +6,7 @@
 @import './hero.css';
 @import './dock.css';
 @import './map.css';
+@import './scanner.css';
 
 /* Layout global fluide ciblant smartphone */
 .app-container {

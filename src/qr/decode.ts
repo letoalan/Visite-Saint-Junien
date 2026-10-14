@@ -21,7 +21,17 @@ export interface QrDecodeResult {
 }
 
 export function decodeQrPayload(rawInput: string): QrDecodeResult {
-  const trimmed = rawInput.trim();
+  let trimmed = rawInput.trim();
+
+  // Si l'usager ou le lecteur a scanné une URL contenant le jeton SJ1
+  if (!trimmed.startsWith('SJ1:') && trimmed.includes('SJ1:')) {
+    const sjIndex = trimmed.indexOf('SJ1:');
+    trimmed = trimmed.substring(sjIndex);
+    const ampersandIndex = trimmed.indexOf('&');
+    if (ampersandIndex !== -1) {
+      trimmed = trimmed.substring(0, ampersandIndex);
+    }
+  }
 
   if (!trimmed.startsWith('SJ1:')) {
     return {

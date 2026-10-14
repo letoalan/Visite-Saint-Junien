@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card } from '../components/common/Card';
 import { Button } from '../components/common/Button';
 import { Modal } from '../components/common/Modal';
+import { QrScanner } from '../components/common/QrScanner';
 import { decodeQrPayload } from '../qr/decode';
 import { QrPayload } from '../qr/schema';
 import {
@@ -127,27 +128,10 @@ export const ValidatorScreen: React.FC = () => {
     }
   };
 
-  const handleDemoTest = () => {
-    // Crée un QR démo valide pour la formation
-    const demoPayload = {
-      v: 1 as const,
-      cid: 'saint-junien-pouvoirs',
-      cv: '1.0.0',
-      sid: `demo_${Date.now()}`,
-      stages: [1, 1, 1, 1, 1],
-      res: true,
-      ts: Date.now()
-    };
-    const rawChk = `${demoPayload.v}|${demoPayload.cid}|${demoPayload.cv}|${demoPayload.sid}|11111|true|${demoPayload.ts}`;
-    let hash = 0x811c9dc5;
-    for (let i = 0; i < rawChk.length; i++) {
-      hash ^= rawChk.charCodeAt(i);
-      hash += (hash << 1) + (hash << 4) + (hash << 7) + (hash << 8) + (hash << 24);
-    }
-    const chk = hash >>> 0;
-    const jsonStr = JSON.stringify({ ...demoPayload, chk });
-    const b64 = btoa(unescape(encodeURIComponent(jsonStr))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-    processQrString(`SJ1:${b64}`);
+  const handleResetScan = () => {
+    setCurrentResult(null);
+    setManualCode('');
+    setMediatorNote('');
   };
 
   return (
@@ -155,38 +139,69 @@ export const ValidatorScreen: React.FC = () => {
       <div>
         <h1 style={{ fontSize: '1.6rem' }}>Validateur Médiateur</h1>
         <p className="text-subtle mt-2">
-          Contrôlez les attestations QR présentées par les visiteurs et prévenez les doublons.
+          Contrôlez les attestations QR présentées par les visiteurs et délivrez les récompenses officielles.
         </p>
       </div>
 
       <Card>
-        <h2 style={{ fontSize: '1.2rem', marginBottom: '0.75rem' }}>Lecture d’un QR Code</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <textarea
-            value={manualCode}
-            onChange={(e) => setManualCode(e.target.value)}
-            placeholder="Collez ici la chaîne SJ1:... ou utilisez un lecteur optique"
-            rows={3}
-            style={{
-              width: '100%',
-              padding: '0.75rem',
-              borderRadius: 'var(--radius-md)',
-              border: '1px solid var(--color-parchment-border)',
-              fontFamily: 'monospace',
-              fontSize: '0.85rem'
-            }}
-          />
+        <h2 style={{ fontSize: '1.2rem', marginBottom: '0.4rem' }}>
+          📷 Scanner l’Attestation Visiteur
+        </h2>
+        <p className="text-subtle" style={{ fontSize: '0.85rem', marginBottom: '1rem' }}>
+          Visez le QR code d'attestation affiché sur l'écran du visiteur avec la caméra de ce poste.
+        </p>
 
+        <QrScanner
+          onScan={(scannedText) => {
+            setManualCode(scannedText);
+            processQrString(scannedText);
+          }}
+        />
+
+        {/* Option de secours : Douchette optique ou Saisie manuelle */}
+        <div
+          style={{
+            marginTop: '1.25rem',
+            paddingTop: '1rem',
+            borderTop: '1px solid var(--color-parchment-border)'
+          }}
+        >
+          <label
+            htmlFor="mediator-code-input"
+            style={{
+              display: 'block',
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              marginBottom: '0.4rem',
+              color: 'var(--color-ink-muted)'
+            }}
+          >
+            Ou saisie manuelle / Douchette optique USB :
+          </label>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+            <textarea
+              id="mediator-code-input"
+              value={manualCode}
+              onChange={(e) => setManualCode(e.target.value)}
+              placeholder="Collez ici la chaîne SJ1:... ou scannez avec un lecteur optique"
+              rows={2}
+              style={{
+                flex: 1,
+                minWidth: '220px',
+                padding: '0.65rem',
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--color-parchment-border)',
+                fontFamily: 'monospace',
+                fontSize: '0.82rem'
+              }}
+            />
             <Button
               variant="primary"
               onClick={() => processQrString(manualCode)}
               disabled={!manualCode.trim()}
+              style={{ alignSelf: 'flex-start' }}
             >
               Vérifier le QR
-            </Button>
-            <Button variant="secondary" onClick={handleDemoTest}>
-              🧪 Simuler un QR démo
             </Button>
           </div>
         </div>
@@ -197,6 +212,15 @@ export const ValidatorScreen: React.FC = () => {
               <div className="feedback-box error">
                 <div className="feedback-title">✕ Code Refusé</div>
                 <p className="feedback-explanation">{currentResult.error}</p>
+                <div style={{ marginTop: '0.75rem' }}>
+                  <Button
+                    variant="secondary"
+                    onClick={handleResetScan}
+                    style={{ fontSize: '0.82rem', padding: '0.35rem 0.75rem' }}
+                  >
+                    ↺ Nouveau scan
+                  </Button>
+                </div>
               </div>
             )}
 
@@ -213,11 +237,21 @@ export const ValidatorScreen: React.FC = () => {
                   Étapes validées : {currentResult.payload.stages.filter((s) => s === 1).length}/5
                 </p>
 
-                {!currentResult.isDuplicate && (
+                {currentResult.isDuplicate ? (
+                  <div style={{ marginTop: '0.75rem' }}>
+                    <Button
+                      variant="secondary"
+                      onClick={handleResetScan}
+                      style={{ fontSize: '0.82rem', padding: '0.35rem 0.75rem' }}
+                    >
+                      ↺ Nouveau scan
+                    </Button>
+                  </div>
+                ) : (
                   <div style={{ marginTop: '1rem' }}>
                     <input
                       type="text"
-                      placeholder="Note optionnelle du médiateur (ex: Groupe Scolaire B)"
+                      placeholder="Note optionnelle du médiateur (ex: Groupe Scolaire B, Validé par Marie)"
                       value={mediatorNote}
                       onChange={(e) => setMediatorNote(e.target.value)}
                       style={{
@@ -228,9 +262,14 @@ export const ValidatorScreen: React.FC = () => {
                         border: '1px solid var(--color-parchment-border)'
                       }}
                     />
-                    <Button variant="gold" onClick={handleConfirmValidation}>
-                      Valider et inscrire au journal
-                    </Button>
+                    <div style={{ display: 'flex', gap: 10 }}>
+                      <Button variant="gold" onClick={handleConfirmValidation}>
+                        🎁 Valider et délivrer le cadeau
+                      </Button>
+                      <Button variant="secondary" onClick={handleResetScan}>
+                        Annuler
+                      </Button>
+                    </div>
                   </div>
                 )}
               </div>

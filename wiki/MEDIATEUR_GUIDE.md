@@ -8,12 +8,12 @@ L'écran **Médiateur** (accessible via le lien dans la barre supérieure ou l'a
 
 L'interface propose trois méthodes d'entrée complémentaires :
 
-1. **Lecteur optique matériel / Douchette USB** :
-   - Fonctionne directement en collant ou scannant la chaîne dans la zone de texte prévue.
-2. **Import ou Saisie manuelle de la chaîne** :
-   - Si la caméra du terminal d'accueil n'est pas activée, le visiteur peut transmettre ou montrer sa chaîne textuelle (`SJ1:...`).
-3. **Mode Démonstration (`Simuler un QR démo`)** :
-   - Génère instantanément une charge utile conforme pour tester l'interface ou former un nouveau médiateur sans attendre un vrai visiteur.
+1. **Caméra vidéo en direct (Webcam / Caméra Smartphone/Tablette)** :
+   - Scan automatique et instantané en temps réel avec réticule de visée doré, balayage lumineux, signal sonore de confirmation et sélection de caméra.
+2. **Import ou Glisser-Déposer d'une Image de QR Code** :
+   - Analyse immédiate d'un cliché ou d'une capture d'écran, idéal sur les postes d'accueil dépourvus de webcam connectée.
+3. **Lecteur optique matériel / Douchette USB ou Saisie manuelle** :
+   - Zone de texte directement compatible avec les douchettes USB 2D et le copier-coller de la chaîne d'attestation (`SJ1:...`).
 
 ---
 
