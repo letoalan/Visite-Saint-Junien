@@ -110,6 +110,16 @@ export function decodeRewardQrPayload(rawInput: string): RewardQrDecodeResult {
     }
   }
 
+  // Si l'usager ou le lecteur a scanné une URL contenant directement le jeton SJR1
+  if (!trimmed.startsWith('SJR1:') && trimmed.includes('SJR1:')) {
+    const sjIndex = trimmed.indexOf('SJR1:');
+    trimmed = trimmed.substring(sjIndex);
+    const ampersandIndex = trimmed.indexOf('&');
+    if (ampersandIndex !== -1) {
+      trimmed = trimmed.substring(0, ampersandIndex);
+    }
+  }
+
   if (!trimmed.startsWith('SJR1:')) {
     return {
       success: false,

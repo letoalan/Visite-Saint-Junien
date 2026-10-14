@@ -74,6 +74,16 @@ describe('QR Code : Encodage, Décodage et Anti-corruption', () => {
       expect(decoded.payload?.rid).toBe('ostensions-saint-junien');
     });
 
+    it('décode un QR cadeau inclus directement dans un lien ou fragment', () => {
+      const rewardQr = buildRewardQrPayload('session_direct', 'collegiale-histoire');
+      const directUrl = `https://saint-junien.fr/visite#cadeau/${rewardQr}&ref=poster`;
+
+      const decoded = decodeRewardQrPayload(directUrl);
+      expect(decoded.success).toBe(true);
+      expect(decoded.payload?.sid).toBe('session_direct');
+      expect(decoded.payload?.rid).toBe('collegiale-histoire');
+    });
+
     it('rejette un QR cadeau dont le checksum a été altéré', () => {
       const rewardQr = buildRewardQrPayload('session_abc123', 'collegiale-histoire');
       const altered = rewardQr.slice(0, -3) + '999';

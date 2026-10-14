@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from '../components/common/Card';
 import { Button } from '../components/common/Button';
+import { QrScanner } from '../components/common/QrScanner';
 import { UserSession } from '../domain/types';
 import { decodeRewardQrPayload } from '../qr/decode';
 import {
@@ -204,55 +205,109 @@ export const RewardScreen: React.FC<RewardScreenProps> = ({
             >
               🏠 Accueil
             </Button>
+            <Button
+              variant="secondary"
+              onClick={() => {
+                setReward(null);
+                setManualCode('');
+                setError(null);
+              }}
+              style={{ fontSize: '0.82rem' }}
+              title="Scanner un autre QR code de réponse"
+            >
+              📷 Scanner un autre QR
+            </Button>
           </div>
         </Card>
       ) : (
         <Card>
-          <div style={{ textAlign: 'center', padding: '1rem 0' }}>
-            <p className="text-editorial" style={{ fontSize: '1rem', marginBottom: '1.25rem' }}>
-              Pour révéler votre planche cadeau, scannez le <strong>QR Code de réponse</strong> présenté par le médiateur à l’accueil.
+          <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+            <h2 style={{ fontSize: '1.25rem', marginBottom: '0.35rem' }}>
+              📷 Scanner le QR Cadeau du Médiateur
+            </h2>
+            <p className="text-subtle" style={{ fontSize: '0.85rem', margin: 0 }}>
+              Visez le <strong>QR code de réponse</strong> affiché sur l'écran du médiateur pour débloquer votre cadeau patrimonial.
             </p>
+          </div>
 
-            <form onSubmit={handleManualSubmit} style={{ maxWidth: 440, margin: '0 auto', textAlign: 'left' }}>
+          <QrScanner
+            placeholderText="Placez le QR code présenté par le médiateur au centre du cadre"
+            onScan={(scannedText) => {
+              setManualCode(scannedText);
+              processToken(scannedText);
+            }}
+          />
+
+          {error && (
+            <div className="feedback-box error" style={{ marginTop: '1.25rem' }}>
+              <div className="feedback-title">⚠ Code Non Reconnu</div>
+              <p className="feedback-explanation">{error}</p>
+              <div style={{ marginTop: '0.5rem' }}>
+                <Button
+                  variant="secondary"
+                  onClick={() => setError(null)}
+                  style={{ fontSize: '0.8rem', padding: '0.3rem 0.7rem' }}
+                >
+                  ↺ Réessayer
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {/* Saisie manuelle de secours */}
+          <div
+            style={{
+              marginTop: '1.25rem',
+              paddingTop: '1rem',
+              borderTop: '1px solid var(--color-parchment-border)'
+            }}
+          >
+            <form onSubmit={handleManualSubmit}>
               <label
                 htmlFor="reward-code"
-                style={{ display: 'block', fontWeight: 600, fontSize: '0.85rem', marginBottom: 6 }}
-              >
-                Ou collez ici le code de réponse (SJR1:... ou lien complet) :
-              </label>
-              <textarea
-                id="reward-code"
-                rows={3}
-                value={manualCode}
-                onChange={(e) => setManualCode(e.target.value)}
-                placeholder="Ex : SJR1:eyJ2IjoxLCJzaWQiOi..."
                 style={{
-                  width: '100%',
-                  padding: '0.65rem',
-                  borderRadius: 'var(--radius-md)',
-                  border: '1px solid var(--color-parchment-border)',
-                  fontFamily: 'monospace',
-                  fontSize: '0.82rem',
-                  marginBottom: '1rem'
+                  display: 'block',
+                  fontWeight: 600,
+                  fontSize: '0.85rem',
+                  marginBottom: 6,
+                  color: 'var(--color-ink-muted)'
                 }}
-              />
-
-              {error && (
-                <div className="feedback-box error" style={{ marginBottom: '1rem' }}>
-                  <div className="feedback-title">⚠ Code Non Reconnu</div>
-                  <p className="feedback-explanation">{error}</p>
-                </div>
-              )}
-
-              <div style={{ display: 'flex', gap: 10 }}>
-                <Button type="submit" variant="gold" style={{ flex: 1 }} disabled={!manualCode.trim()}>
+              >
+                Ou saisie manuelle / lien reçu du médiateur :
+              </label>
+              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                <textarea
+                  id="reward-code"
+                  rows={2}
+                  value={manualCode}
+                  onChange={(e) => setManualCode(e.target.value)}
+                  placeholder="Ex : SJR1:eyJ2Ijox... ou lien complet"
+                  style={{
+                    flex: 1,
+                    minWidth: '220px',
+                    padding: '0.65rem',
+                    borderRadius: 'var(--radius-md)',
+                    border: '1px solid var(--color-parchment-border)',
+                    fontFamily: 'monospace',
+                    fontSize: '0.82rem'
+                  }}
+                />
+                <Button
+                  type="submit"
+                  variant="gold"
+                  disabled={!manualCode.trim()}
+                  style={{ alignSelf: 'flex-start' }}
+                >
                   Révéler mon cadeau →
-                </Button>
-                <Button type="button" variant="secondary" onClick={() => onNavigate('#home')}>
-                  Retour
                 </Button>
               </div>
             </form>
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.25rem' }}>
+            <Button variant="secondary" onClick={() => onNavigate('#qr')}>
+              ← Revenir à mon QR d'attestation
+            </Button>
           </div>
         </Card>
       )}
